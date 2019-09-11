@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_lambda_function" "example" {
   function_name = "ServerlessExample"
 
-  s3_bucket = "lambda-function-upload-ja"
+  s3_bucket = "ja-lambda-function-upload"
   s3_key    = "v1.0.0/example.zip"
 
   handler = "main.handler"

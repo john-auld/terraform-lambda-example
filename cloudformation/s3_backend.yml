@@ -5,12 +5,12 @@ Parameters:
   S3BucketNameTerraform:
     Description: Terraform state bucket name
     Type: String
-    Default: terraform-backend-state-ja
+    Default: ja-terraform-backend-state
 
   S3BucketNameLambdaFunction:
     Description: Terraform state bucket name
     Type: String
-    Default: lambda-function-upload-ja
+    Default: ja-lambda-function-upload
 
 Resources:
   TerraformBucket:

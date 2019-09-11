@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "terraform-backend-state-ja"
-    key    = "bjss"
+    bucket = "ja-terraform-backend-state"
+    key    = "demo"
     region = "eu-west-2"
   }
 }
