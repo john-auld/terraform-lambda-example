@@ -1,0 +1,36 @@
+---
+AWSTemplateFormatVersion: 2010-09-09
+
+Parameters:
+  S3BucketNameTerraform:
+    Description: Terraform state bucket name
+    Type: String
+    Default: terraform-backend-state-ja
+
+  S3BucketNameLambdaFunction:
+    Description: Terraform state bucket name
+    Type: String
+    Default: lambda-function-upload-ja
+
+Resources:
+  TerraformBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName:
+        Ref: S3BucketNameTerraform
+      AccessControl: Private
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+  LambdaFunctionBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName:
+        Ref: S3BucketNameLambdaFunction
+      AccessControl: Private
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
