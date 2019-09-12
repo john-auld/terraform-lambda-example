@@ -1,12 +1,16 @@
-provider "aws" {
-  region = "eu-west-2"
+/*
+   Lambda function resources
+     This is a demo application of a simple lambda function
+*/
+
+variable "app_version" {
 }
 
 resource "aws_lambda_function" "example" {
   function_name = "ServerlessExample"
 
   s3_bucket = "ja-lambda-function-upload"
-  s3_key    = "v1.0.0/example.zip"
+  s3_key    = "example_v${var.app_version}.zip"
 
   handler = "main.handler"
   runtime = "nodejs10.x"
@@ -14,8 +18,7 @@ resource "aws_lambda_function" "example" {
   role = "${aws_iam_role.lambda_exec.arn}"
 }
 
-# IAM role which dictates what other AWS services the Lambda function
-# may access.
+# IAM role affects access to AWS services by the Lambda function
 resource "aws_iam_role" "lambda_exec" {
   name = "serverless_example_lambda"
 
