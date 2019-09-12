@@ -63,3 +63,7 @@ aws s3 cp example.zip s3://ja-lambda-function-upload/example_v1.0.1.zip
 terraform plan
 terraform apply -var "app_version=1.0.1"  --auto-approve
 ```
+
+# Acknowledgement
+
+This demonstration is derived from a [Terraform article](https://learn.hashicorp.com/terraform/aws/lambda-api-gateway), which also includes details of integrating API Gateway.
